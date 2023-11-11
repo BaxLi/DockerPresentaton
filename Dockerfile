@@ -1,20 +1,20 @@
-# Use an official Python runtime as a parent image
+# Используйте официальный образ Python в качестве родительского образа
 FROM python:3.12.0-slim
 
-# Set the working directory in the container
+# Установите рабочий каталог в контейнере
 WORKDIR /usr/src/app
 
-# Copy the current directory contents into the container at /usr/src/app
+# Скопируйте содержимое текущего каталога в контейнер по пути /usr/src/app
 COPY . .
 
-# Install any needed packages specified in requirements.txt
+# Установите необходимые пакеты, указанные в файле requirements.txt
 RUN pip install --no-cache-dir Flask
 
-# Make port 80 available to the world outside this container
+# Сделайте порт 80 доступным для мира :) за пределами этого контейнера
 EXPOSE 80
 
-# Define environment variable
+# Определите переменную окружения
 ENV NAME World
 
-# Run app.py when the container launches
+# Запустите app.py при запуске контейнера
 CMD ["python", "app.py"]
